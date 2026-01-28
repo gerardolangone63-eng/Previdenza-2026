@@ -87,7 +87,8 @@ fig.add_trace(go.Bar(
     y=[stipendio_mensile_stima, pensione_mensile_stima],
     marker_color=['#1f77b4', '#ef553b']
 ))
-fig.update_layout(title="Confronto Reddito vs Pensione (Mensile)", ylabel="Euro €")
+# Riga corretta qui sotto:
+fig.update_layout(title="Confronto Reddito vs Pensione (Mensile)", yaxis_title="Euro €")
 st.plotly_chart(fig, use_container_width=True)
 
 # --- FOCUS RIFORMA 2026 & SOLUZIONI ---
@@ -108,5 +109,6 @@ df_dati = pd.DataFrame({
     "Valore": [f"€ {montante_finale:,.2f}", f"{eta_pensionamento_target} anni", f"{COEFFICIENTI_TRASFORMAZIONE.get(eta_pensionamento_target):.5f}", f"€ {(gap_mensile*13):,.2f}"]
 })
 st.table(df_dati)
+
 
 st.info("Nota: I calcoli sono simulazioni basate su proiezioni medie e non costituiscono certezza del diritto pensionistico.")
